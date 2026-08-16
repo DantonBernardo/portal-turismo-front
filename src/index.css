@@ -1,111 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  /* ===== Cores de marca ===== */
+  --color-primary-50: #f2f9f5;
+  --color-primary-100: #e3f3ea;
+  --color-primary-500: #3d8f68;
+  --color-primary-600: #276b4e;
+  --color-primary-700: #1c4a37;
+  --color-primary-800: #14382a;
+  --color-primary-900: #0f2e22;
+
+  /* ===== Superfícies ===== */
+  --color-surface: #ffffff;
+  --color-surface-alt: #f6faf7;
+  --color-surface-muted: #eef2f0;
+  --color-border: #e2e8e5;
+
+  /* ===== Neutros / texto ===== */
+  --color-text-primary: #0f1f1a;
+  --color-text-secondary: #4b5a55;
+  --color-text-muted: #8a948f;
+  --color-text-inverse: #ffffff;
+
+  /* ===== Badges ===== */
+  --color-badge-bg: rgba(255, 255, 255, 0.92);
+  --color-badge-text: #1c2b25;
+
+  /* ===== Avaliação ===== */
+  --color-rating-star: #f5a524;
+  --color-rating-bg: #ffffff;
+
+  /* ===== Botões ===== */
+  --color-button-primary-bg: var(--color-primary-800);
+  --color-button-primary-text: #ffffff;
+  --color-button-primary-hover: var(--color-primary-700);
+
+  --color-button-secondary-bg: #ffffff;
+  --color-button-secondary-text: var(--color-primary-900);
+  --color-button-secondary-border: var(--color-border);
+
+  /* ===== Feedback ===== */
+  --color-success-bg: #e6f6ec;
+  --color-success-text: #1c7c47;
+  --color-success-border: #a9e2bd;
+
+  --color-error-bg: #fdecec;
+  --color-error-text: #c62f2f;
+  --color-error-border: #f3b4b4;
+
+  --color-warning-bg: #fff6e5;
+  --color-warning-text: #9a6400;
+  --color-warning-border: #f3d98b;
+
+  --color-info-bg: #e7f1fb;
+  --color-info-text: #1f5f9c;
+  --color-info-border: #b7d7f2;
+
+  /* ===== Tipografia ===== */
+  --font-base: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ===== Raio ===== */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* ===== Sombra ===== */
+  --shadow-card: 0 4px 16px rgba(15, 31, 26, 0.08);
+  --shadow-card-hover: 0 8px 24px rgba(15, 31, 26, 0.12);
+}
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* ===== Gradiente do card de CTA final (verde -> azul petróleo) ===== */
+  --gradient-cta-start: #0d5c4a;
+  --gradient-cta-mid: #0e6b5c;
+  --gradient-cta-end: #14607a;
+  --gradient-cta: linear-gradient(
+    120deg,
+    var(--gradient-cta-start) 0%,
+    var(--gradient-cta-mid) 45%,
+    var(--gradient-cta-end) 100%
+  );
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  /* ===== Overlay escuro do hero ===== */
+  --gradient-hero-overlay: linear-gradient(
+    180deg,
+    rgba(6, 15, 20, 0.75) 0%,
+    rgba(6, 15, 20, 0.45) 50%,
+    rgba(6, 15, 20, 0.65) 100%
+  );
 }
