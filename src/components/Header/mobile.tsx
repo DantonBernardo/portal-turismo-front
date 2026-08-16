@@ -94,7 +94,7 @@ export default function Mobile() {
             <div className="flex flex-col gap-2 px-4 pb-4 pt-2 border-t border-border">
               <button
                 type="button"
-                className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors py-2 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 rounded-sm"
+                className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors py-2 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 rounded-sm"
               >
                 Entrar
               </button>
